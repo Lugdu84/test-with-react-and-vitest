@@ -1,7 +1,7 @@
 describe('expect = assertion', () => {
 	const result = 2;
 	const object1 = {
-		name: 'mohamed',
+		name: 'john doe',
 		age: 25,
 	};
 	const object2 = object1;
