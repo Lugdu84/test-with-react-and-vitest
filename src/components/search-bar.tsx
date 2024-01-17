@@ -31,6 +31,8 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
 				/>
 				{query && (
 					<X
+						data-testid="clear-button"
+						role="button"
 						className="absolute right-2 text-gray-500"
 						onClick={handleClear}
 					/>
