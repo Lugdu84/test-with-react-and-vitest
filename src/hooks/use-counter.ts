@@ -41,6 +41,7 @@ export const useCounter = ({
 
 	return {
 		count,
+		step,
 		increment,
 		decrement,
 		changeStep,
