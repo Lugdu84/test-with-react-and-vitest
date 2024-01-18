@@ -121,4 +121,40 @@ describe('useCounter', () => {
 		});
 		expect(counter.current.count).toBe(10);
 	});
+	it('can increment if count = 6, step = 2, maxValue = 10', () => {
+		const { result: counter } = renderHook(() =>
+			useCounter({ initialValue: 6, initialStep: 2, maxValue: 10 })
+		);
+		expect(counter.current.canIncrement).toBe(true);
+	});
+	it('can increment if count = 8, step = 2, maxValue = 10', () => {
+		const { result: counter } = renderHook(() =>
+			useCounter({ initialValue: 8, initialStep: 2, maxValue: 10 })
+		);
+		expect(counter.current.canIncrement).toBe(true);
+	});
+	it("can't increment if count = 8, step = 3, maxValue = 10", () => {
+		const { result: counter } = renderHook(() =>
+			useCounter({ initialValue: 8, initialStep: 3, maxValue: 10 })
+		);
+		expect(counter.current.canIncrement).toBe(false);
+	});
+	it("can't decrement if count = 0, step = 1", () => {
+		const { result: counter } = renderHook(() =>
+			useCounter({ initialValue: 0, initialStep: 1 })
+		);
+		expect(counter.current.canDecrement).toBe(false);
+	});
+	it('can decrement if count = 1, step = 1', () => {
+		const { result: counter } = renderHook(() =>
+			useCounter({ initialValue: 1, initialStep: 1 })
+		);
+		expect(counter.current.canDecrement).toBe(true);
+	});
+	it("can't decrement if count = 1, step = 2", () => {
+		const { result: counter } = renderHook(() =>
+			useCounter({ initialValue: 1, initialStep: 2 })
+		);
+		expect(counter.current.canDecrement).toBe(false);
+	});
 });

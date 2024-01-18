@@ -3,8 +3,31 @@ import { useCounter } from '@/hooks/use-counter';
 import { Input } from './ui/input';
 import { Label } from '@radix-ui/react-label';
 
-export default function Counter() {
-	const { count, step, increment, decrement, reset, changeStep } = useCounter();
+type CounterProps = {
+	maxValue?: number;
+	initialValue?: number;
+	initialStep?: number;
+};
+
+export default function Counter({
+	maxValue,
+	initialValue,
+	initialStep,
+}: CounterProps) {
+	const {
+		count,
+		step,
+		increment,
+		decrement,
+		canIncrement,
+		canDecrement,
+		reset,
+		changeStep,
+	} = useCounter({
+		maxValue,
+		initialValue,
+		initialStep,
+	});
 	return (
 		<div className="flex flex-col border shadow-xl p-4 w-64 justify-center gap-4">
 			<h2>Notre super compteur !</h2>
@@ -17,7 +40,7 @@ export default function Counter() {
 				</Label>
 				<Input
 					type="number"
-					name="current-step"
+					name="step"
 					min={1}
 					max={10}
 					value={step}
@@ -25,9 +48,17 @@ export default function Counter() {
 				/>
 			</div>
 			<div className="flex items-center justify-evenly mt-2">
-				<Button onClick={decrement}>-</Button>
+				<Button
+					disabled={!canDecrement}
+					onClick={decrement}>
+					-
+				</Button>
 				<span className="text-2xl">{count}</span>
-				<Button onClick={increment}>+</Button>
+				<Button
+					disabled={!canIncrement}
+					onClick={increment}>
+					+
+				</Button>
 			</div>
 		</div>
 	);
