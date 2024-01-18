@@ -38,11 +38,16 @@ export const useCounter = ({
 	const decrement = () => setCount(Math.max(count - step, 0));
 	const changeStep = (newStep: number) => setStep(newStep);
 	const reset = () => setCount(initialValue);
+	const canIncrement = maxValue ? step <= maxValue - count : true;
+	const canDecrement = count - step >= 0;
 
 	return {
 		count,
+		step,
 		increment,
+		canIncrement,
 		decrement,
+		canDecrement,
 		changeStep,
 		reset,
 	};

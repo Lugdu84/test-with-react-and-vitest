@@ -35,21 +35,21 @@ describe('Queries 8', () => {
 	it("get all buttons with getAllByRole('button')", () => {
 		render(<Counter />);
 		const buttons = screen.getAllByRole('button');
-		expect(buttons).toHaveLength(2);
+		expect(buttons).toHaveLength(3);
 		// click on button
 		// etc
 	});
 	it("get all buttons with queryAllByRole('button')", () => {
 		render(<Counter />);
 		const buttons = screen.queryAllByRole('button');
-		expect(buttons).toHaveLength(2);
+		expect(buttons).toHaveLength(3);
 		// click on button
 		// etc
 	});
 	it("get all buttons with findAllByRole('button')", async () => {
 		render(<Counter />);
 		const buttons = await screen.findAllByRole('button');
-		expect(buttons).toHaveLength(2);
+		expect(buttons).toHaveLength(3);
 		// click on button
 		// etc
 	});
