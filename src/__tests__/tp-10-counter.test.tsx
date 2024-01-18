@@ -2,9 +2,10 @@
 
 describe('test du composant Counter avec les valeurs par défauts', () => {
 	// Vous pouvez utiliser un beforeEach pour éviter de répéter le code
+
 	it('Le composant est initialisé. O est affiché (la valeur par défaut pour notre compteur).', () => {});
 	it('Si on incremente, 1 est affiché', () => {});
-	it("Si on décremente deux fois, puis qu'on décremente une fois, 1 est affiché", () => {});
+	it("Si on incremente deux fois, puis qu'on décremente une fois, 1 est affiché", () => {});
 	it('On ne peut pas descendre en dessous de 0, Si on est déjà à 0, le bouton "-" doit être "disabled"', () => {});
 	it('Si on modifie le step à 2, on incremente de 2 (ça affiche 2) et on décremente de 2 (ça affiche 0)', () => {});
 	it('Si on clique sur le bouton reset, count est réinitialisé à 0', () => {});
